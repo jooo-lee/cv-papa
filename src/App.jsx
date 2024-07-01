@@ -1,35 +1,43 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import PersonalInput from './components/PersonalInput';
+import PersonalPreview from './components/PersonalPreview';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
+  const [personalInfo, setPersonalInfo] = useState({});
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  );
+  function handleName(e) {
+    setPersonalInfo({ ...personalInfo, name: e.target.value });
+  }
+
+  function handleEmail(e) {
+    setPersonalInfo({ ...personalInfo, email: e.target.value });
+  }
+
+  function handlePhone(e) {
+    setPersonalInfo({ ...personalInfo, phone: e.target.value });
+  }
+
+  if (!submitted) {
+    return (
+      <form action="">
+        <PersonalInput
+          info={personalInfo}
+          handleName={handleName}
+          handleEmail={handleEmail}
+          handlePhone={handlePhone}
+        />
+        <button onClick={() => setSubmitted(true)}>Submit</button>
+      </form>
+    );
+  } else {
+    return (
+      <>
+        <PersonalPreview info={personalInfo} />
+        <button onClick={() => setSubmitted(false)}>Edit</button>
+      </>
+    );
+  }
 }
 
 export default App;
