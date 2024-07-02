@@ -1,9 +1,8 @@
-import Section from './Section';
 import Input from './Input';
 
 function PersonalInput({ info, handleName, handleEmail, handlePhone }) {
   return (
-    <Section name={'Personal Details'}>
+    <>
       <Input
         label={'Name:'}
         id={'name'}
@@ -22,7 +21,7 @@ function PersonalInput({ info, handleName, handleEmail, handlePhone }) {
         type={'tel'}
         value={info.phone}
         onChange={handlePhone}></Input>
-    </Section>
+    </>
   );
 }
 

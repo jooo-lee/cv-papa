@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Section from './components/Section';
 import PersonalInput from './components/PersonalInput';
 import PersonalPreview from './components/PersonalPreview';
 import EducationInput from './components/EducationInput';
@@ -85,22 +86,26 @@ function App() {
   if (!submitted) {
     return (
       <form action="">
-        <PersonalInput
-          info={personalInfo}
-          handleName={handleName}
-          handleEmail={handleEmail}
-          handlePhone={handlePhone}
-        />
-        {educations.map((education) => (
-          <EducationInput
-            key={education.id}
-            education={education}
-            handleSchool={handleSchool}
-            handleDegree={handleDegree}
-            handleStartDate={handleStartDate}
-            handleEndDate={handleEndDate}
+        <Section name={'Personal Details'}>
+          <PersonalInput
+            info={personalInfo}
+            handleName={handleName}
+            handleEmail={handleEmail}
+            handlePhone={handlePhone}
           />
-        ))}
+        </Section>
+        <Section name={'Education'}>
+          {educations.map((education) => (
+            <EducationInput
+              key={education.id}
+              education={education}
+              handleSchool={handleSchool}
+              handleDegree={handleDegree}
+              handleStartDate={handleStartDate}
+              handleEndDate={handleEndDate}
+            />
+          ))}
+        </Section>
         <button
           onClick={(e) => {
             e.preventDefault();

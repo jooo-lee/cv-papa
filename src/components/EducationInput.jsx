@@ -1,4 +1,3 @@
-import Section from './Section';
 import Input from './Input';
 
 function EducationInput({
@@ -9,7 +8,7 @@ function EducationInput({
   handleEndDate,
 }) {
   return (
-    <Section name={'Education'}>
+    <>
       <Input
         label={'School:'}
         id={'school'}
@@ -38,7 +37,7 @@ function EducationInput({
         value={education.end}
         onChange={(e) => handleEndDate(e, education.id)}
       />
-    </Section>
+    </>
   );
 }
 
