@@ -105,8 +105,25 @@ function App() {
               handleEndDate={handleEndDate}
             />
           ))}
+          <button
+            type="button"
+            onClick={() => {
+              setEducations([
+                ...educations,
+                {
+                  id: uuidv4(),
+                  school: '',
+                  degree: '',
+                  start: '',
+                  end: '',
+                },
+              ]);
+            }}>
+            Add education
+          </button>
         </Section>
         <button
+          type="submit"
           onClick={(e) => {
             e.preventDefault();
             setSubmitted(true);
@@ -122,7 +139,9 @@ function App() {
         {educations.map((education) => {
           return <EducationPreview key={education.id} education={education} />;
         })}
-        <button onClick={() => setSubmitted(false)}>Edit</button>
+        <button type="button" onClick={() => setSubmitted(false)}>
+          Edit
+        </button>
       </>
     );
   }

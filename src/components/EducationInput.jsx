@@ -8,36 +8,36 @@ function EducationInput({
   handleEndDate,
 }) {
   return (
-    <>
+    <div>
       <Input
         label={'School:'}
-        id={'school'}
+        id={'school' + education.id}
         type={'text'}
         value={education.school}
         onChange={(e) => handleSchool(e, education.id)}
       />
       <Input
         label={'Degree:'}
-        id={'degree'}
+        id={'degree' + education.id}
         type={'text'}
         value={education.degree}
         onChange={(e) => handleDegree(e, education.id)}
       />
       <Input
         label={'Start date:'}
-        id={'startDate'}
+        id={'start' + education.id}
         type={'date'}
         value={education.start}
         onChange={(e) => handleStartDate(e, education.id)}
       />
       <Input
         label={'End date:'}
-        id={'endDate'}
+        id={'end' + education.id}
         type={'date'}
         value={education.end}
         onChange={(e) => handleEndDate(e, education.id)}
       />
-    </>
+    </div>
   );
 }
 
