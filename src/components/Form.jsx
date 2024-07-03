@@ -3,12 +3,15 @@ import { v4 as uuidv4 } from 'uuid';
 import Section from './Section';
 import PersonalInput from './PersonalInput';
 import EducationInput from './EducationInput';
+import JobInput from './JobInput';
 
 function Form({
   personalInfo,
   setPersonalInfo,
   educations,
   setEducations,
+  jobs,
+  setJobs,
   setSubmitted,
 }) {
   function updateEducation(educationId, property, value) {
@@ -18,6 +21,18 @@ function Form({
           return { ...education, [property]: value };
         } else {
           return education;
+        }
+      })
+    );
+  }
+
+  function updateJob(jobId, property, value) {
+    setJobs(
+      jobs.map((job) => {
+        if (job.id === jobId) {
+          return { ...job, [property]: value };
+        } else {
+          return job;
         }
       })
     );
@@ -54,6 +69,28 @@ function Form({
             ]);
           }}>
           Add education
+        </button>
+      </Section>
+      <Section name={'Work Experience'}>
+        {jobs.map((job) => (
+          <JobInput key={job.id} job={job} updateJob={updateJob} />
+        ))}
+        <button
+          type="button"
+          onClick={() => {
+            setJobs([
+              ...jobs,
+              {
+                id: uuidv4(),
+                company: '',
+                position: '',
+                responsibilities: '',
+                start: '',
+                end: '',
+              },
+            ]);
+          }}>
+          Add job
         </button>
       </Section>
       <button

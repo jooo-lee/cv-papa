@@ -5,9 +5,9 @@ import Preview from './components/Preview';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
-    name: '',
-    email: '',
-    phone: '',
+    name: 'Ahsoka Tano',
+    email: 'ahsoka@gmail.com',
+    phone: '123 456 7890',
   });
   const [educations, setEducations] = useState([
     {
@@ -16,6 +16,16 @@ function App() {
       degree: 'BSc Agriculture',
       start: '2005-09-04',
       end: '2010-05-31',
+    },
+  ]);
+  const [jobs, setJobs] = useState([
+    {
+      id: uuidv4(),
+      company: 'Google',
+      position: 'CEO',
+      responsibilities: 'Making lots of money.',
+      start: '1998-09-04',
+      end: '2005-12-02',
     },
   ]);
   const [submitted, setSubmitted] = useState(false);
@@ -27,6 +37,8 @@ function App() {
         setPersonalInfo={setPersonalInfo}
         educations={educations}
         setEducations={setEducations}
+        jobs={jobs}
+        setJobs={setJobs}
         setSubmitted={setSubmitted}
       />
     );
@@ -35,6 +47,7 @@ function App() {
       <Preview
         personalInfo={personalInfo}
         educations={educations}
+        jobs={jobs}
         setSubmitted={setSubmitted}
       />
     );
