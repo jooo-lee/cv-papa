@@ -23,59 +23,11 @@ function App() {
   ]);
   const [submitted, setSubmitted] = useState(false);
 
-  function handleName(e) {
-    setPersonalInfo({ ...personalInfo, name: e.target.value });
-  }
-
-  function handleEmail(e) {
-    setPersonalInfo({ ...personalInfo, email: e.target.value });
-  }
-
-  function handlePhone(e) {
-    setPersonalInfo({ ...personalInfo, phone: e.target.value });
-  }
-
-  function handleSchool(e, educationId) {
+  function updateEducation(educationId, property, value) {
     setEducations(
       educations.map((education) => {
         if (education.id === educationId) {
-          return { ...education, school: e.target.value };
-        } else {
-          return education;
-        }
-      })
-    );
-  }
-
-  function handleDegree(e, educationId) {
-    setEducations(
-      educations.map((education) => {
-        if (education.id === educationId) {
-          return { ...education, degree: e.target.value };
-        } else {
-          return education;
-        }
-      })
-    );
-  }
-
-  function handleStartDate(e, educationId) {
-    setEducations(
-      educations.map((education) => {
-        if (education.id === educationId) {
-          return { ...education, start: e.target.value };
-        } else {
-          return education;
-        }
-      })
-    );
-  }
-
-  function handleEndDate(e, educationId) {
-    setEducations(
-      educations.map((education) => {
-        if (education.id === educationId) {
-          return { ...education, end: e.target.value };
+          return { ...education, [property]: value };
         } else {
           return education;
         }
@@ -88,10 +40,8 @@ function App() {
       <form action="">
         <Section name={'Personal Details'}>
           <PersonalInput
-            info={personalInfo}
-            handleName={handleName}
-            handleEmail={handleEmail}
-            handlePhone={handlePhone}
+            personalInfo={personalInfo}
+            setPersonalInfo={setPersonalInfo}
           />
         </Section>
         <Section name={'Education'}>
@@ -99,10 +49,7 @@ function App() {
             <EducationInput
               key={education.id}
               education={education}
-              handleSchool={handleSchool}
-              handleDegree={handleDegree}
-              handleStartDate={handleStartDate}
-              handleEndDate={handleEndDate}
+              updateEducation={updateEducation}
             />
           ))}
           <button
