@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import PersonalPreview from './components/PersonalPreview';
-import EducationPreview from './components/EducationPreview';
 import Form from './components/Form';
+import Preview from './components/Preview';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -33,15 +32,11 @@ function App() {
     );
   } else {
     return (
-      <>
-        <PersonalPreview info={personalInfo} />
-        {educations.map((education) => {
-          return <EducationPreview key={education.id} education={education} />;
-        })}
-        <button type="button" onClick={() => setSubmitted(false)}>
-          Edit
-        </button>
-      </>
+      <Preview
+        personalInfo={personalInfo}
+        educations={educations}
+        setSubmitted={setSubmitted}
+      />
     );
   }
 }
