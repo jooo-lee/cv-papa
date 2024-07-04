@@ -5,7 +5,7 @@ function JobPreview({ job }) {
       <p>Position: {job.position}</p>
       <p>Responsibilities: {job.responsibilities}</p>
       <p>Start date: {job.start}</p>
-      <p>End date: {job.end}</p>
+      <p>{job.isCurrent ? 'Present' : `End date: ${job.end}`}</p>
     </div>
   );
 }
