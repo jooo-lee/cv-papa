@@ -22,6 +22,13 @@ function JobInput({ job, updateJob }) {
     updateJob(jobId, 'end', e.target.value);
   }
 
+  const handleIsCurrent = (jobId, e) => {
+    if (e.target.checked) {
+      updateJob(jobId, 'end', '');
+    }
+    updateJob(jobId, 'isCurrent', e.target.checked);
+  };
+
   return (
     <div>
       <Input
@@ -59,6 +66,14 @@ function JobInput({ job, updateJob }) {
         type={'date'}
         value={job.end}
         onChange={(e) => handleEndDate(job.id, e)}
+        disabled={job.isCurrent}
+      />
+      <Input
+        label={'I am currently working here'}
+        id={'isCurrent' + job.id}
+        type={'checkbox'}
+        value={'currentJob'}
+        onChange={(e) => handleIsCurrent(job.id, e)}
       />
     </div>
   );

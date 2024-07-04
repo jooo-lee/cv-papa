@@ -26,9 +26,13 @@ function Form({
     );
   }
 
+  /* 
+  Use updater function to update state more than once before re-render,
+  i.e. for resetting end date when isCurrent is checked
+  */
   function updateJob(jobId, property, value) {
-    setJobs(
-      jobs.map((job) => {
+    setJobs((prevJobs) =>
+      prevJobs.map((job) => {
         if (job.id === jobId) {
           return { ...job, [property]: value };
         } else {
@@ -87,6 +91,7 @@ function Form({
                 responsibilities: '',
                 start: '',
                 end: '',
+                isCurrent: false,
               },
             ]);
           }}>

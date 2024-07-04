@@ -26,6 +26,7 @@ function App() {
       responsibilities: 'Making lots of money.',
       start: '1998-09-04',
       end: '2005-12-02',
+      isCurrent: false,
     },
   ]);
   const [submitted, setSubmitted] = useState(false);
