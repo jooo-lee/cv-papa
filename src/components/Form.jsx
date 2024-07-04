@@ -40,6 +40,12 @@ function Form({
     );
   }
 
+  function deleteEducation(educationId) {
+    setEducations(
+      educations.filter((education) => education.id !== educationId)
+    );
+  }
+
   function addJob() {
     setJobs([
       ...jobs,
@@ -85,11 +91,17 @@ function Form({
       </Section>
       <Section name={'Education'}>
         {educations.map((education) => (
-          <EducationInput
-            key={education.id}
-            education={education}
-            updateEducation={updateEducation}
-          />
+          <div key={education.id}>
+            <EducationInput
+              education={education}
+              updateEducation={updateEducation}
+            />
+            <Button
+              type={'button'}
+              onClick={() => deleteEducation(education.id)}
+              text={'Delete education'}
+            />
+          </div>
         ))}
         <Button type={'button'} onClick={addEducation} text={'Add education'} />
       </Section>
