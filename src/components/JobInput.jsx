@@ -1,5 +1,4 @@
 import Input from './Input';
-import TextArea from './TextArea';
 
 function JobInput({ job, updateJob }) {
   function handleCompany(jobId, e) {
@@ -45,14 +44,15 @@ function JobInput({ job, updateJob }) {
         value={job.position}
         onChange={(e) => handlePosition(job.id, e)}
       />
-      <TextArea
-        label={'Responsibilities:'}
-        id={'responsibilities' + job.id}
-        value={job.responsibilities}
-        rows={4}
-        cols={50}
-        onChange={(e) => handleResponsibilities(job.id, e)}
-      />
+      <label htmlFor={'responsibilities' + job.id}>
+        {'Responsibilities:'}{' '}
+        <textarea
+          value={job.responsibilities}
+          id={'responsibilities' + job.id}
+          rows={4}
+          cols={50}
+          onChange={(e) => handleResponsibilities(job.id, e)}></textarea>
+      </label>
       <Input
         label={'Start date:'}
         id={'start' + job.id}
