@@ -41,7 +41,7 @@ function EducationInput({ education, updateEducation }) {
         onChange={(e) => handleStartDate(education.id, e)}
       />
       <Input
-        label={'End date:'}
+        label={'End date (or expected):'}
         id={'end' + education.id}
         type={'date'}
         value={education.end}
