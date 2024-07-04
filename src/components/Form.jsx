@@ -42,6 +42,10 @@ function Form({
     );
   }
 
+  function deleteJob(jobId) {
+    setJobs(jobs.filter((job) => job.id !== jobId));
+  }
+
   return (
     <form>
       <Section name={'Personal Details'}>
@@ -77,7 +81,10 @@ function Form({
       </Section>
       <Section name={'Work Experience'}>
         {jobs.map((job) => (
-          <JobInput key={job.id} job={job} updateJob={updateJob} />
+          <div key={job.id}>
+            <JobInput job={job} updateJob={updateJob} />
+            <button onClick={() => deleteJob(job.id)}>Delete job</button>
+          </div>
         ))}
         <button
           type="button"
