@@ -68,13 +68,14 @@ function JobInput({ job, updateJob }) {
         onChange={(e) => handleEndDate(job.id, e)}
         disabled={job.isCurrent}
       />
-      <Input
-        label={'I am currently working here'}
-        id={'isCurrent' + job.id}
-        type={'checkbox'}
-        value={'currentJob'}
-        onChange={(e) => handleIsCurrent(job.id, e)}
-      />
+      <label htmlFor={'isCurrent' + job.id}>
+        <input
+          type="checkbox"
+          id={'isCurrent' + job.id}
+          onChange={(e) => handleIsCurrent(job.id, e)}
+          checked={job.isCurrent}
+        />
+      </label>
     </div>
   );
 }
