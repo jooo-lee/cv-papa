@@ -69,6 +69,7 @@ function JobInput({ job, updateJob }) {
         disabled={job.isCurrent}
       />
       <label htmlFor={'isCurrent' + job.id}>
+        {'I am currently working here'}{' '}
         <input
           type="checkbox"
           id={'isCurrent' + job.id}
