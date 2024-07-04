@@ -4,6 +4,7 @@ import Section from './Section';
 import PersonalInput from './PersonalInput';
 import EducationInput from './EducationInput';
 import JobInput from './JobInput';
+import Button from './Button';
 
 function Form({
   personalInfo,
@@ -14,6 +15,19 @@ function Form({
   setJobs,
   setSubmitted,
 }) {
+  function addEducation() {
+    setEducations([
+      ...educations,
+      {
+        id: uuidv4(),
+        school: '',
+        degree: '',
+        start: '',
+        end: '',
+      },
+    ]);
+  }
+
   function updateEducation(educationId, property, value) {
     setEducations(
       educations.map((education) => {
@@ -24,6 +38,21 @@ function Form({
         }
       })
     );
+  }
+
+  function addJob() {
+    setJobs([
+      ...jobs,
+      {
+        id: uuidv4(),
+        company: '',
+        position: '',
+        responsibilities: '',
+        start: '',
+        end: '',
+        isCurrent: false,
+      },
+    ]);
   }
 
   /* 
@@ -62,57 +91,29 @@ function Form({
             updateEducation={updateEducation}
           />
         ))}
-        <button
-          type="button"
-          onClick={() => {
-            setEducations([
-              ...educations,
-              {
-                id: uuidv4(),
-                school: '',
-                degree: '',
-                start: '',
-                end: '',
-              },
-            ]);
-          }}>
-          Add education
-        </button>
+        <Button type={'button'} onClick={addEducation} text={'Add education'} />
       </Section>
       <Section name={'Work Experience'}>
         {jobs.map((job) => (
           <div key={job.id}>
             <JobInput job={job} updateJob={updateJob} />
-            <button onClick={() => deleteJob(job.id)}>Delete job</button>
+            <Button
+              type={'button'}
+              onClick={() => deleteJob(job.id)}
+              text={'Delete job'}
+            />
           </div>
         ))}
-        <button
-          type="button"
-          onClick={() => {
-            setJobs([
-              ...jobs,
-              {
-                id: uuidv4(),
-                company: '',
-                position: '',
-                responsibilities: '',
-                start: '',
-                end: '',
-                isCurrent: false,
-              },
-            ]);
-          }}>
-          Add job
-        </button>
+        <Button type={'button'} onClick={addJob} text={'Add job'} />
       </Section>
-      <button
-        type="submit"
+      <Button
+        type={'submit'}
         onClick={(e) => {
           e.preventDefault();
           setSubmitted(true);
-        }}>
-        Submit
-      </button>
+        }}
+        text={'Submit'}
+      />
     </form>
   );
 }

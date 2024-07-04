@@ -1,6 +1,7 @@
 import PersonalPreview from './PersonalPreview';
 import EducationPreview from './EducationPreview';
 import JobPreview from './JobPreview';
+import Button from './Button';
 
 function Preview({ personalInfo, educations, jobs, setSubmitted }) {
   return (
@@ -12,9 +13,11 @@ function Preview({ personalInfo, educations, jobs, setSubmitted }) {
       {jobs.map((job) => {
         return <JobPreview key={job.id} job={job} />;
       })}
-      <button type="button" onClick={() => setSubmitted(false)}>
-        Edit
-      </button>
+      <Button
+        type={'button'}
+        onClick={() => setSubmitted(false)}
+        text={'Edit'}
+      />
     </div>
   );
 }
