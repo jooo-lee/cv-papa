@@ -5,6 +5,7 @@ import PersonalInput from './PersonalInput';
 import EducationInput from './EducationInput';
 import JobInput from './JobInput';
 import Button from './Button';
+import '../styles/Form.css';
 
 function Form({
   personalInfo,
@@ -82,51 +83,57 @@ function Form({
   }
 
   return (
-    <form>
-      <Section name={'Personal Details'}>
-        <PersonalInput
-          personalInfo={personalInfo}
-          setPersonalInfo={setPersonalInfo}
+    <>
+      <h1>CV Generator</h1>
+      <form>
+        <Section name={'Personal Details'}>
+          <div className="input-container">
+            <PersonalInput
+              personalInfo={personalInfo}
+              setPersonalInfo={setPersonalInfo}
+            />
+          </div>
+        </Section>
+        <Section name={'Education'}>
+          {educations.map((education) => (
+            <div key={education.id} className="input-container">
+              <EducationInput
+                education={education}
+                updateEducation={updateEducation}
+                deleteEducation={deleteEducation}
+              />
+            </div>
+          ))}
+          <Button
+            type={'button'}
+            onClick={addEducation}
+            text={'Add education'}
+            className={'add-education'}
+          />
+        </Section>
+        <Section name={'Work Experience'}>
+          {jobs.map((job) => (
+            <div key={job.id} className="input-container">
+              <JobInput job={job} updateJob={updateJob} deleteJob={deleteJob} />
+            </div>
+          ))}
+          <Button
+            type={'button'}
+            onClick={addJob}
+            text={'Add job'}
+            className={'add-job'}
+          />
+        </Section>
+        <Button
+          type={'submit'}
+          onClick={(e) => {
+            e.preventDefault();
+            setSubmitted(true);
+          }}
+          text={'Generate my CV!'}
         />
-      </Section>
-      <Section name={'Education'}>
-        {educations.map((education) => (
-          <div key={education.id}>
-            <EducationInput
-              education={education}
-              updateEducation={updateEducation}
-            />
-            <Button
-              type={'button'}
-              onClick={() => deleteEducation(education.id)}
-              text={'Delete education'}
-            />
-          </div>
-        ))}
-        <Button type={'button'} onClick={addEducation} text={'Add education'} />
-      </Section>
-      <Section name={'Work Experience'}>
-        {jobs.map((job) => (
-          <div key={job.id}>
-            <JobInput job={job} updateJob={updateJob} />
-            <Button
-              type={'button'}
-              onClick={() => deleteJob(job.id)}
-              text={'Delete job'}
-            />
-          </div>
-        ))}
-        <Button type={'button'} onClick={addJob} text={'Add job'} />
-      </Section>
-      <Button
-        type={'submit'}
-        onClick={(e) => {
-          e.preventDefault();
-          setSubmitted(true);
-        }}
-        text={'Submit'}
-      />
-    </form>
+      </form>
+    </>
   );
 }
 

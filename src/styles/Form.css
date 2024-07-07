@@ -1,0 +1,28 @@
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 0.75rem;
+}
+
+/* Divider for educations and jobs */
+section .input-container:not(:first-of-type) {
+  margin-top: 1rem;
+  border-top: 2px dotted black;
+  padding-top: 2rem;
+}
+
+.add-education,
+.add-job {
+  margin-top: 1rem;
+}
+
+.delete-btn {
+  color: #d1242f;
+}
+
+.delete-btn:hover {
+  color: white;
+  background-color: #a40e26;
+}

@@ -1,6 +1,8 @@
 import Input from './Input';
+import Button from './Button';
+import '../styles/JobInput.css';
 
-function JobInput({ job, updateJob }) {
+function JobInput({ job, updateJob, deleteJob }) {
   function handleCompany(jobId, e) {
     updateJob(jobId, 'company', e.target.value);
   }
@@ -29,7 +31,13 @@ function JobInput({ job, updateJob }) {
   };
 
   return (
-    <div>
+    <>
+      <Button
+        type={'button'}
+        onClick={() => deleteJob(job.id)}
+        text={'Delete'}
+        className={'delete-btn'}
+      />
       <Input
         label={'Company:'}
         id={'company' + job.id}
@@ -50,8 +58,17 @@ function JobInput({ job, updateJob }) {
           value={job.responsibilities}
           id={'responsibilities' + job.id}
           rows={4}
-          cols={50}
+          cols={30}
           onChange={(e) => handleResponsibilities(job.id, e)}></textarea>
+      </label>
+      <label htmlFor={'isCurrent' + job.id} className="isCurrentLabel">
+        {'I am currently working here'}{' '}
+        <input
+          type="checkbox"
+          id={'isCurrent' + job.id}
+          onChange={(e) => handleIsCurrent(job.id, e)}
+          checked={job.isCurrent}
+        />
       </label>
       <Input
         label={'Start date:'}
@@ -68,16 +85,7 @@ function JobInput({ job, updateJob }) {
         onChange={(e) => handleEndDate(job.id, e)}
         disabled={job.isCurrent}
       />
-      <label htmlFor={'isCurrent' + job.id}>
-        {'I am currently working here'}{' '}
-        <input
-          type="checkbox"
-          id={'isCurrent' + job.id}
-          onChange={(e) => handleIsCurrent(job.id, e)}
-          checked={job.isCurrent}
-        />
-      </label>
-    </div>
+    </>
   );
 }
 

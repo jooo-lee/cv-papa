@@ -1,6 +1,7 @@
 import Input from './Input';
+import Button from './Button';
 
-function EducationInput({ education, updateEducation }) {
+function EducationInput({ education, updateEducation, deleteEducation }) {
   function handleSchool(educationId, e) {
     updateEducation(educationId, 'school', e.target.value);
   }
@@ -18,7 +19,13 @@ function EducationInput({ education, updateEducation }) {
   }
 
   return (
-    <div>
+    <>
+      <Button
+        type={'button'}
+        onClick={() => deleteEducation(education.id)}
+        text={'Delete'}
+        className={'delete-btn'}
+      />
       <Input
         label={'School:'}
         id={'school' + education.id}
@@ -47,7 +54,7 @@ function EducationInput({ education, updateEducation }) {
         value={education.end}
         onChange={(e) => handleEndDate(education.id, e)}
       />
-    </div>
+    </>
   );
 }
 
