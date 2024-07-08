@@ -1,0 +1,24 @@
+.education-preview {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.education-preview p {
+  width: fit-content;
+}
+
+.school-and-degree {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.school {
+  font-weight: bold;
+  font-size: large;
+}
+
+.degree {
+  font-style: italic;
+}

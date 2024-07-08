@@ -1,10 +1,25 @@
+import '../styles/EducationPreview.css';
+
 function EducationPreview({ education }) {
   return (
-    <div>
-      <p>School: {education.school}</p>
-      <p>Degree: {education.degree}</p>
-      <p>Start date: {education.start}</p>
-      <p>End date: {education.end}</p>
+    <div className="education-preview">
+      <div className="school-and-degree">
+        <p className="school">{education.school}</p>
+        <p className="degree">{education.degree}</p>
+      </div>
+      <div>
+        <p>
+          {new Date(education.start).toLocaleDateString('en-us', {
+            year: 'numeric',
+            month: 'short',
+          })}{' '}
+          -{' '}
+          {new Date(education.end).toLocaleDateString('en-us', {
+            year: 'numeric',
+            month: 'short',
+          })}
+        </p>
+      </div>
     </div>
   );
 }
