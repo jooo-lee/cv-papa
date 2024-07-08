@@ -12,6 +12,7 @@ function Preview({ personalInfo, educations, jobs, setSubmitted }) {
       {educations.map((education) => {
         return <EducationPreview key={education.id} education={education} />;
       })}
+      <h2 className="section-title">Experience</h2>
       {jobs.map((job) => {
         return <JobPreview key={job.id} job={job} />;
       })}
