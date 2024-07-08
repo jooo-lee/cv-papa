@@ -1,9 +1,13 @@
+import '../styles/PersonalPreview.css';
+
 function PersonalPreview({ info }) {
   return (
-    <div>
-      <p>Name: {info.name}</p>
-      <p>Email: {info.email}</p>
-      <p>Phone number: {info.phone}</p>
+    <div className="personal-preview">
+      <h1 className="name">{info.name}</h1>
+      <div className="contact-info">
+        <p>{info.email}</p>
+        <p>{info.phone}</p>
+      </div>
     </div>
   );
 }

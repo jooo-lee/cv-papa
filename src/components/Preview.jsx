@@ -2,10 +2,11 @@ import PersonalPreview from './PersonalPreview';
 import EducationPreview from './EducationPreview';
 import JobPreview from './JobPreview';
 import Button from './Button';
+import '../styles/Preview.css';
 
 function Preview({ personalInfo, educations, jobs, setSubmitted }) {
   return (
-    <div>
+    <div className="preview">
       <PersonalPreview info={personalInfo} />
       {educations.map((education) => {
         return <EducationPreview key={education.id} education={education} />;

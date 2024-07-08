@@ -84,7 +84,7 @@ function Form({
 
   return (
     <>
-      <h1>CV Generator</h1>
+      <h1 className="app-title">CV Generator</h1>
       <form>
         <Section name={'Personal Details'}>
           <div className="input-container">
