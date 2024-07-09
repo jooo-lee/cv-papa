@@ -166,7 +166,11 @@ function Form({
           className={'delete-btn'}
         />
       </div>
-      <form>
+      <form
+        onSubmit={() => {
+          // Scroll to top of page
+          document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }}>
         <Section name={'Personal Details'}>
           <div className="input-container">
             <PersonalInput
