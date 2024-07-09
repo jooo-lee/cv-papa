@@ -7,27 +7,27 @@ import './styles/App.css';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
-    name: 'Ahsoka Tano',
-    email: 'ahsoka@gmail.com',
-    phone: '123 456 7890',
+    name: '',
+    email: '',
+    phone: '',
   });
   const [educations, setEducations] = useState([
     {
       id: uuidv4(),
-      school: 'University of Guelph',
-      degree: 'BSc Agriculture',
-      start: '2005-09-04',
-      end: '2010-05-31',
+      school: '',
+      degree: '',
+      start: '',
+      end: '',
     },
   ]);
   const [jobs, setJobs] = useState([
     {
       id: uuidv4(),
-      company: 'Google',
-      position: 'CEO',
-      responsibilities: 'Making lots of money.',
-      start: '1998-09-04',
-      end: '2005-12-02',
+      company: '',
+      position: '',
+      responsibilities: '',
+      start: '',
+      end: '',
       isCurrent: false,
     },
   ]);

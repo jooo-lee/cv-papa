@@ -82,9 +82,54 @@ function Form({
     setJobs(jobs.filter((job) => job.id !== jobId));
   }
 
+  function loadExample() {
+    setPersonalInfo({
+      name: 'Jake Ryan',
+      email: 'jake@su.edu',
+      phone: '123-456-7890',
+    });
+    setEducations([
+      {
+        id: uuidv4(),
+        school: 'Southwestern University',
+        degree: 'Bachelor of Arts in Computer Science, Minor in Business',
+        start: '2018-08-01',
+        end: '2021-05-31',
+      },
+      {
+        id: uuidv4(),
+        school: 'Blinn College',
+        degree: "Associate's in Liberal Arts",
+        start: '2014-08-01',
+        end: '2018-05-31',
+      },
+    ]);
+    setJobs([
+      {
+        id: uuidv4(),
+        company: 'Texas A&M University',
+        position: 'Undergraduate Research Assistant',
+        responsibilities: `• Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems \n• Developed a full-stack web application using Flask, React, PostgreSQL and Docker to analyze GitHub data \n• Explored ways to visualize GitHub collaboration in a classroom setting`,
+        start: '2020-06-01',
+        end: '',
+        isCurrent: true,
+      },
+      {
+        id: uuidv4(),
+        company: 'Southwestern University',
+        position: 'Information Technology Support Specialist',
+        responsibilities: `• Communicate with managers to set up campus computers used on campus \n• Assess and troubleshoot computer problems brought by students, faculty and staff \n• Maintain upkeep of computers, classroom equipment, and 200 printers across campus`,
+        start: '2018-09-01',
+        end: '',
+        isCurrent: true,
+      },
+    ]);
+  }
+
   return (
     <>
       <h1 className="app-title">CV Generator</h1>
+      <Button type={'button'} onClick={loadExample} text={'Load example'} />
       <form>
         <Section name={'Personal Details'}>
           <div className="input-container">
