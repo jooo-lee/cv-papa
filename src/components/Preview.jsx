@@ -20,6 +20,7 @@ function Preview({ personalInfo, educations, jobs, setSubmitted }) {
         type={'button'}
         onClick={() => setSubmitted(false)}
         text={'Edit'}
+        className={'edit-btn'}
       />
     </div>
   );
