@@ -20,7 +20,12 @@ function Preview({ personalInfo, educations, jobs, setSubmitted }) {
       </div>
       <Button
         type={'button'}
-        onClick={() => setSubmitted(false)}
+        onClick={() => {
+          setSubmitted(false);
+
+          // Scroll to top of page
+          document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }}
         text={'Edit'}
       />
     </>

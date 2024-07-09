@@ -210,6 +210,9 @@ function Form({
           onClick={(e) => {
             e.preventDefault();
             setSubmitted(true);
+
+            // Scroll to top of page
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
           }}
           text={'Generate my CV!'}
         />
