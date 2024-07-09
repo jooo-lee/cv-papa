@@ -2,6 +2,11 @@
   width: 100%;
 }
 
+.load-clear-btns {
+  display: flex;
+  gap: 1rem;
+}
+
 .input-container {
   width: 100%;
   display: flex;

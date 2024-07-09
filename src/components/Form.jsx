@@ -126,10 +126,46 @@ function Form({
     ]);
   }
 
+  function clearResume() {
+    setPersonalInfo({
+      name: '',
+      email: '',
+      phone: '',
+    });
+    setEducations([
+      {
+        id: uuidv4(),
+        school: '',
+        degree: '',
+        start: '',
+        end: '',
+      },
+    ]);
+    setJobs([
+      {
+        id: uuidv4(),
+        company: '',
+        position: '',
+        responsibilities: '',
+        start: '',
+        end: '',
+        isCurrent: false,
+      },
+    ]);
+  }
+
   return (
     <>
       <h1 className="app-title">CV Generator</h1>
-      <Button type={'button'} onClick={loadExample} text={'Load example'} />
+      <div className="load-clear-btns">
+        <Button type={'button'} onClick={loadExample} text={'Load example'} />
+        <Button
+          type={'button'}
+          onClick={clearResume}
+          text={'Clear resume'}
+          className={'delete-btn'}
+        />
+      </div>
       <form>
         <Section name={'Personal Details'}>
           <div className="input-container">
