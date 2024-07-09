@@ -35,7 +35,3 @@ section .input-container:not(:first-of-type) {
   color: white;
   background-color: #a40e26;
 }
-
-.generate-cv-btn {
-  margin-bottom: 2rem;
-}

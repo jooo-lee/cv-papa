@@ -212,7 +212,6 @@ function Form({
             setSubmitted(true);
           }}
           text={'Generate my CV!'}
-          className={'generate-cv-btn'}
         />
       </form>
     </>
