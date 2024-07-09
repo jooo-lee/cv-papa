@@ -9,6 +9,7 @@ function JobPreview({ job }) {
           {new Date(job.start).toLocaleDateString('en-us', {
             year: 'numeric',
             month: 'short',
+            timeZone: 'UTC',
           })}{' '}
           -{' '}
           {job.isCurrent
@@ -16,6 +17,7 @@ function JobPreview({ job }) {
             : `${new Date(job.end).toLocaleDateString('en-us', {
                 year: 'numeric',
                 month: 'short',
+                timeZone: 'UTC',
               })}`}
         </p>
       </div>

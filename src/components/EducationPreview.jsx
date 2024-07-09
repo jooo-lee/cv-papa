@@ -12,11 +12,13 @@ function EducationPreview({ education }) {
           {new Date(education.start).toLocaleDateString('en-us', {
             year: 'numeric',
             month: 'short',
+            timeZone: 'UTC',
           })}{' '}
           -{' '}
           {new Date(education.end).toLocaleDateString('en-us', {
             year: 'numeric',
             month: 'short',
+            timeZone: 'UTC',
           })}
         </p>
       </div>
