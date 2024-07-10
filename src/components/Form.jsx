@@ -156,7 +156,7 @@ function Form({
 
   return (
     <>
-      <h1 className="app-title">CV Generator</h1>
+      <h1 className="app-title">CV Papa</h1>
       <div className="load-clear-btns">
         <Button type={'button'} onClick={loadExample} text={'Load example'} />
         <Button
