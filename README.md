@@ -1,6 +1,6 @@
 # CV Papa
 
-My implementation of the [CV application project](https://www.theodinproject.com/lessons/node-path-react-new-cv-application) for [The Odin Project](https://www.theodinproject.com/). Try it [here](https://cv-papa.vercel.app/)!
+My implementation of the [CV application project](https://www.theodinproject.com/lessons/node-path-react-new-cv-application) for [The Odin Project](https://www.theodinproject.com/). Check out the [live preview](https://cv-papa.vercel.app/)!
 
 ## Description:
 
